@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch | OpenGMS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <script src="main.js" defer></script>
+
+    <header class="header flex">
+        <img src="https://placehold.co/75" alt="Placeholder image">
+        <div>
+            <h2>Dispatch | OpenGMS</h2>
+        </div>
+        <div aria-hidden="true">
+            <h3>
+                <button id="create-call-button">Create call</button>
+            </h3>
+        </div>
+    </header>
+
+    <main>
+        <div class="dispatching grid">
+            <section class="livemap rounded-w-space">
+                <!-- <embed src="http://127.0.0.1/live_map/" type="text/html" > -->
+            </section>
+            <section class="units rounded-w-space">
+                <div class="list-item flex">
+                    <h3>John Doe.</h3>
+                    <div class="buttons flex">
+                        <button>Assign</button>
+                        <!-- TODO: Should open the call dialog to assign -->
+                        <button>Channel</button>
+                    </div>
+                </div>
+            </section>
+            <section class="calls rounded-w-space">
+
+                <div class="list-item flex">
+                    <h3>Noise complaint</h3>
+                    <div class="buttons flex">
+                        <button>Information</button>
+                        <button>Channel</button>
+                    </div>
+                </div>
+
+            </section>
+            <section class="chat rounded-w-space flex">
+                <div id="chatbox" class="chatbox">
+
+                    <!-- TODO: Chatbox -->
+
+                </div>
+            </section>
+        </div>
+
+        <dialog class="create-call" id="create-call-dialog">
+            <form method="dialog" class="flex">
+
+                <input type="number" name="postal" id="postal" placeholder="Postal code" required>
+                
+                <input type="text" list="call-category" placeholder="Call category" required>
+
+                <datalist id="call-category">
+                    <option value="police">Police</option>
+                    <option value="medical">Medical</option>
+                    <option value="fire">Fire</option>
+                </datalist>
+                
+                <input type="text" list="call-priority" placeholder="Call priority" required>
+
+                <datalist id="call-priority">
+                    <option value="urgent">Urgent</option>
+                    <option value="lorem1">Lorem</option>
+                </datalist>
+
+                <textarea name="call-description" id="call-description" cols="30" rows="10" placeholder="Relevent information for emergency responders" required>
+
+                </textarea>
+
+
+
+                <button id="create-call-submit">Create</button>
+                <button id="create-call-cancel" class="warning-button">Cancel</button>
+            </form>
+        </dialog>
+        
+
+
+
+
+        <!-- * Assigns the user to the active call -->
+
+
+        <!-- ! Dialog is now open by default, has to be changed to the assign button in the user `list-item` -->
+        <dialog id="call-dialog" open>
+            <form method="dialog">
+                <div class="list-item flex">
+                    <h3>Noise Complaint</h3>
+                    <h3 style="color: var(--warning-color); font-weight: 800;">Urgent</h4>
+                    <div class="buttons flex">
+                        <button style="padding: 1rem;">Assign</button>
+                    </div>
+                </div>
+
+
+                <button id="call-cancel" class="warning-button">Cancel</button>
+            </form>
+        </dialog>
+    </main>
+</body>
+</html>
